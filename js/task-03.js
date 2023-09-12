@@ -18,7 +18,8 @@ const gallery = document.querySelector(".gallery")
 gallery.style.display = "flex"
 gallery.style.justifyContent = "space-between"
 
-images.forEach(({ url, alt }) => {
-	const img = `<img src="${url}" alt="${alt}" width="500" />`
-	gallery.insertAdjacentHTML("afterbegin", img)
+const imgs = images.map(({ url, alt }) => {
+	return `<img src="${url}" alt="${alt}" width="500" />`
 })
+
+gallery.insertAdjacentHTML("afterbegin", imgs.join(""))
